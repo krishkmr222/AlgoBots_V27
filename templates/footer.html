@@ -1,31 +1,17 @@
 <!-- Modern Compact Footer -->
 <footer class="footer-modern bg-base-300 text-base-content">
     <div class="container mx-auto px-6 py-12">
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-            <!-- Company Info with New Logo -->
-            <div class="lg:col-span-2 space-y-6">
+        <div class="space-y-8">
+            <!-- Top Section: Company Info and Social Links -->
+            <div class="space-y-6">
                 <div class="flex items-center space-x-3">
                     <img src="{{ url_for('static', filename='favicon/algobots-logo.svg') }}" alt="AlgoBots Logo" class="h-10 w-10">
                     <span class="text-2xl font-bold text-gradient-primary">AlgoBots</span>
                 </div>
-                <p class="text-base-content/70 leading-relaxed max-w-md">
+                <p class="text-base-content/70 leading-relaxed max-w-2xl">
                     Democratizing algorithmic trading through open-source innovation. 
                     Connect your strategies with 20+ Indian brokers seamlessly.
                 </p>
-                
-                <!-- Risk Disclaimer -->
-                <div class="bg-base-200 p-4 rounded-lg border-l-4 border-yellow-500">
-                    <h4 class="font-semibold text-yellow-600 mb-2 flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.864-.833-2.634 0L3.17 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                        </svg>
-                        Risk Disclaimer
-                    </h4>
-                    <p class="text-sm text-base-content/60">
-                        Trading and investing in financial markets involves substantial risk of loss and is not suitable for all investors. 
-                        Past performance is not indicative of future results. Please consider your investment objectives and risk tolerance before trading.
-                    </p>
-                </div>
                 
                 <div class="flex space-x-4">
                     <a href="https://github.com/marketcalls/algobots" target="_blank" class="social-link">
@@ -51,15 +37,31 @@
                 </div>
             </div>
 
-            <!-- Resources -->
-            <div class="space-y-6">
+            <!-- Middle Section: Resources (Horizontal) -->
+            <div class="space-y-4">
                 <h3 class="text-lg font-bold text-base-content">Resources</h3>
-                <nav class="space-y-3">
-                    <a href="https://docs.algobots.in/getting-started" target="_blank" class="footer-link block">Getting Started</a>
-                    <a href="https://docs.algobots.in/api" target="_blank" class="footer-link block">API Reference</a>
-                    <a href="/privacy" class="footer-link block">Privacy Policy</a>
-                    <a href="/terms" class="footer-link block">Terms of Service</a>
+                <nav class="flex flex-wrap gap-6">
+                    <a href="https://docs.algobots.in/getting-started" target="_blank" class="footer-link">Getting Started</a>
+                    <a href="https://docs.algobots.in/api" target="_blank" class="footer-link">API Reference</a>
+                    <a href="/privacy" class="footer-link">Privacy Policy</a>
+                    <a href="/terms" class="footer-link">Terms of Service</a>
                 </nav>
+            </div>
+
+            <!-- Bottom Section: Risk Disclaimer (Extended to Full Width) -->
+            <div class="w-full">
+                <div class="bg-base-200 p-4 rounded-lg border-l-4 border-yellow-500 w-full">
+                    <h4 class="font-semibold text-yellow-600 mb-2 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.864-.833-2.634 0L3.17 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                        </svg>
+                        Risk Disclaimer
+                    </h4>
+                    <p class="text-sm text-base-content/60">
+                        Trading and investing in financial markets involves substantial risk of loss and is not suitable for all investors. 
+                        Past performance is not indicative of future results. Please consider your investment objectives and risk tolerance before trading.
+                    </p>
+                </div>
             </div>
         </div>
 
