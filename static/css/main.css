@@ -4808,6 +4808,18 @@ html:has(.drawer-toggle:checked) {
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
+
+/* Additional gradient utility classes */
+.gradient-text-primary {
+    background: linear-gradient(to right, #FF4365, #e6a612, #f8030c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-bg-primary {
+    background-color: rgba(255, 67, 101, 0.15) !important;
+}
 /* Special gradient for Algo Trading Platform text */
 .platform-gradient-text {
         background: linear-gradient(to right, #FF4365, #e6a612, #f8030c);
