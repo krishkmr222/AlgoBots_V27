@@ -169,7 +169,15 @@ def create_app():
         
     @app.context_processor
     def inject_version():
-        return dict(version=get_version())
+        class MomentObject:
+            @property
+            def year(self):
+                return datetime.now().year
+        
+        return dict(
+            version=get_version(),
+            moment=lambda: MomentObject()
+        )
 
     return app
 
