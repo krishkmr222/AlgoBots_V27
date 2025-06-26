@@ -6525,7 +6525,7 @@ main {
 /* FORCE DARK THEME ONLY - Remove all light theme references */
 :root {
     color-scheme: dark;
-    --gradient-primary: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+    --gradient-primary: linear-gradient(to right, #FF4365, #e6a612, #f8030c);
     --gradient-secondary: linear-gradient(135deg, #ec4899 0%, #ef4444 100%);
 }
 
