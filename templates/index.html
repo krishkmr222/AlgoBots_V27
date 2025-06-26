@@ -465,14 +465,22 @@
         align-items: center;
     }
     
-    /* FIXED: Section titles with proper height to prevent cropping */
+    /* FIXED: Section titles with proper height and brand gradient colors */
     .section-title-fixed {
+        background: linear-gradient(to right, #FF4365, #e6a612, #f8030c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         line-height: 1.4 !important; /* Increased line height */
         padding: 0.75rem 0 !important; /* Added padding for descenders */
         margin-bottom: 1.5rem !important;
     }
     
     .feature-title-fixed {
+        background: linear-gradient(to right, #FF4365, #e6a612, #f8030c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         line-height: 1.4 !important; /* Increased line height */
         padding: 0.25rem 0 !important; /* Added padding for descenders */
     }
