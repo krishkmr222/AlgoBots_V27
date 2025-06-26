@@ -7,7 +7,7 @@
 /* Import Tailwind CSS utility styles */
 @tailwind utilities;
 
-/* Modern design tokens and variables */
+/* Modern design tokens and variables for DARK THEME ONLY */
 :root {
     --gradient-primary: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
     --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -22,6 +22,10 @@
     
     --blur-glass: blur(20px);
     --border-glass: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* Hero section variables for better background visibility */
+    --hero-overlay: rgba(15, 15, 16, 0.75);
+    --hero-blend-mode: multiply;
 }
 
 /* Custom base styles */
@@ -35,6 +39,8 @@
         @apply min-h-screen flex flex-col;
         background: var(--gradient-dark);
         background-attachment: fixed;
+        /* Force dark theme */
+        color-scheme: dark;
     }
 
     /* Custom scrollbar */
@@ -57,7 +63,7 @@
 
 /* Modern UI Components */
 @layer components {
-    /* Hero Section Enhancements */
+    /* Hero Section Enhancements with Better Background Visibility */
     .hero-section {
         position: relative;
         min-height: 100vh;
@@ -65,13 +71,17 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
+        /* Enhanced background image visibility */
         background: linear-gradient(135deg, 
-            rgba(15, 15, 16, 0.95) 0%, 
-            rgba(26, 26, 26, 0.9) 50%, 
-            rgba(15, 15, 16, 0.95) 100%),
+            rgba(15, 15, 16, 0.7) 0%, 
+            rgba(26, 26, 26, 0.65) 50%, 
+            rgba(15, 15, 16, 0.7) 100%),
             radial-gradient(circle at 50% 50%, 
             rgba(99, 102, 241, 0.1) 0%, 
             transparent 50%);
+        /* Improved blending for better image visibility */
+        background-blend-mode: overlay, normal;
+        filter: brightness(1.1) contrast(1.05);
     }
 
     .hero-particles {
@@ -91,13 +101,15 @@
         padding: 2rem;
     }
 
+    /* FIXED: Hero title styles with proper line height to prevent cropping */
     .hero-title {
         @apply text-6xl md:text-7xl font-bold mb-6;
         background: linear-gradient(135deg, #ffffff 0%, #a855f7 50%, #3b82f6 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        line-height: 1.1;
+        line-height: 1.3; /* Increased from 1.1 to prevent letter cropping */
+        padding: 0.5rem 0; /* Added padding for descenders like g, y, p, q */
     }
 
     .hero-subtitle {
@@ -502,8 +514,11 @@
         @apply text-center mb-16;
     }
 
+    /* FIXED: Section header titles with proper spacing to prevent cropping */
     .section-header-modern h2 {
         @apply text-4xl md:text-5xl font-bold mb-6 text-gradient-primary;
+        line-height: 1.4; /* Increased from default to prevent letter cropping */
+        padding: 0.75rem 0; /* Added padding for descenders */
     }
 
     .section-header-modern p {
@@ -515,6 +530,8 @@
 @media (max-width: 640px) {
     .hero-title {
         @apply text-4xl;
+        line-height: 1.4; /* Maintain proper line height on mobile */
+        padding: 0.5rem 0;
     }
     
     .hero-subtitle {
@@ -528,6 +545,13 @@
     .grid-modern {
         grid-template-columns: 1fr;
     }
+    
+    /* Ensure section titles don't get cropped on mobile */
+    .section-header-modern h2 {
+        @apply text-3xl;
+        line-height: 1.4;
+        padding: 0.5rem 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -537,6 +561,8 @@
     
     .section-header-modern h2 {
         @apply text-3xl;
+        line-height: 1.4;
+        padding: 0.5rem 0;
     }
 }
 
@@ -554,15 +580,11 @@
     }
 }
 
-/* Dark Mode Enhancements */
-[data-theme="dark"] {
+/* FORCE DARK THEME ONLY - Remove all light theme references */
+:root {
+    color-scheme: dark;
     --gradient-primary: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
     --gradient-secondary: linear-gradient(135deg, #ec4899 0%, #ef4444 100%);
-}
-
-[data-theme="light"] {
-    --gradient-primary: linear-gradient(135deg, #059669 0%, #0891b2 100%);
-    --gradient-secondary: linear-gradient(135deg, #f472b6 0%, #f87171 100%);
 }
 
 /* Accessibility Enhancements */
@@ -657,28 +679,5 @@
         .navbar-end .btn-circle {
             @apply w-11 h-11 min-h-11;
         }
-    }
-}
-
-/* Animation keyframes */
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideOut {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(100%);
-        opacity: 0;
     }
 }
