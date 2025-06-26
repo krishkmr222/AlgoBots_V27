@@ -559,6 +559,15 @@ body {
   background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
 }
 
+/* Standardized Section Title Class - Blue to Emerald Green */
+.section-title-standard {
+    background: linear-gradient(135deg, #3b82f6 0%, #059669 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+
 /* Import Tailwind CSS component styles */
 .\!container {
   width: 100% !important;
