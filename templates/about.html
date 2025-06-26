@@ -244,4 +244,29 @@
         </div>
     </div>
 </section>
+
+<style>
+/* Fix for gradient text rendering issues with descenders */
+.bg-clip-text.text-transparent {
+    line-height: 1.2 !important;
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.5rem !important;
+    display: inline-block;
+    overflow: visible !important;
+}
+
+/* Additional fixes for gradient text display */
+h1.bg-clip-text, h2.bg-clip-text, h3.bg-clip-text {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+/* Ensure proper spacing for title sections */
+.text-center h1, .text-center h2 {
+    margin-bottom: 2rem !important;
+}
+</style>
 {% endblock %}
