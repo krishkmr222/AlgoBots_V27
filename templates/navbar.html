@@ -1,78 +1,77 @@
 <div class="navbar bg-base-100">
     <!-- Mobile Menu Button -->
-    <div class="navbar-start flex-none">
+    <div class="navbar-start">
         <label for="main-drawer" class="btn btn-ghost drawer-button lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
             </svg>
         </label>
-        <a href="/" class="btn btn-ghost normal-case hover:bg-transparent p-2 logo-container">
-            <div class="flex items-center gap-3">
-                <img src="{{ url_for('static', filename='favicon/algobots-modern-logo.svg') }}" alt="AlgoBots" class="h-10 w-10 logo-image">
-                <div class="hidden sm:flex flex-col items-start">
-                    <span class="text-gradient-primary font-bold text-xl leading-tight">AlgoBots</span>
-                    <span class="text-xs text-base-content opacity-60 leading-tight">Anytime Anywhere</span>
-                </div>
-            </div>
-        </a>
     </div>
 
-    <!-- Desktop Menu - Optimized Spacing -->
-    <div class="navbar-center hidden lg:flex flex-1 justify-center">
-        <ul class="menu menu-horizontal px-4 gap-1 nav-menu-optimized">
+    <!-- Desktop Menu - with Home button -->
+    <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 gap-1">
             <li>
                 <a href="{{ url_for('dashboard_bp.dashboard') }}" 
-                   class="text-base hover:bg-base-200 nav-item {{ 'active' if request.endpoint == 'dashboard_bp.dashboard' }}">
-                    Dashboard
+                   class="text-base hover:bg-base-200 {{ 'active' if request.endpoint == 'dashboard_bp.dashboard' }}">
+                    Home
                 </a>
             </li>
             <li>
                 <a href="{{ url_for('orders_bp.orderbook') }}" 
-                   class="text-base hover:bg-base-200 nav-item {{ 'active' if request.endpoint == 'orders_bp.orderbook' }}">
+                   class="text-base hover:bg-base-200 {{ 'active' if request.endpoint == 'orders_bp.orderbook' }}">
                     Orderbook
                 </a>
             </li>
             <li>
                 <a href="{{ url_for('orders_bp.tradebook') }}" 
-                   class="text-base hover:bg-base-200 nav-item {{ 'active' if request.endpoint == 'orders_bp.tradebook' }}">
+                   class="text-base hover:bg-base-200 {{ 'active' if request.endpoint == 'orders_bp.tradebook' }}">
                     Tradebook
                 </a>
             </li>
             <li>
                 <a href="{{ url_for('orders_bp.positions') }}" 
-                   class="text-base hover:bg-base-200 nav-item {{ 'active' if request.endpoint == 'orders_bp.positions' }}">
+                   class="text-base hover:bg-base-200 {{ 'active' if request.endpoint == 'orders_bp.positions' }}">
                     Positions
                 </a>
             </li>
             <li>
                 <a href="{{ url_for('tv_json_bp.tradingview_json') }}" 
-                   class="text-base hover:bg-base-200 nav-item {{ 'active' if request.endpoint == 'tv_json_bp.tradingview_json' }}">
+                   class="text-base hover:bg-base-200 {{ 'active' if request.endpoint == 'tv_json_bp.tradingview_json' }}">
                     Tradingview
                 </a>
             </li>
             <li>
                 <a href="{{ url_for('chartink_bp.index') }}" 
-                   class="text-base hover:bg-base-200 nav-item {{ 'active' if request.endpoint.startswith('chartink_bp.') }}">
+                   class="text-base hover:bg-base-200 {{ 'active' if request.endpoint.startswith('chartink_bp.') }}">
                     Chartink
                 </a>
             </li>
             <li>
                 <a href="{{ url_for('strategy_bp.index') }}" 
-                   class="text-base hover:bg-base-200 nav-item {{ 'active' if request.endpoint.startswith('strategy_bp.') }}">
+                   class="text-base hover:bg-base-200 {{ 'active' if request.endpoint.startswith('strategy_bp.') }}">
                     Strategy
                 </a>
             </li>
             <li>
                 <a href="{{ url_for('analyzer_bp.analyzer') }}" 
-                   class="text-base hover:bg-base-200 nav-item {{ 'active' if request.endpoint == 'analyzer_bp.analyzer' }}">
+                   class="text-base hover:bg-base-200 {{ 'active' if request.endpoint == 'analyzer_bp.analyzer' }}">
                     API Analyzer
                 </a>
             </li>
         </ul>
     </div>
 
-    <!-- Right Side - Mode Toggle, Theme & Profile -->
-    <div class="navbar-end flex-none">
+    <!-- Right Side - Logo Text, Mode Toggle, Theme & Profile -->
+    <div class="navbar-end">
+        <!-- Logo Text - Top Right Corner -->
+        <div class="logo-text-container mr-4">
+            <div class="flex flex-col items-end">
+                <span class="text-gradient-primary font-bold text-xl leading-tight">AlgoBots</span>
+                <span class="text-xs text-base-content opacity-60 leading-tight">Anytime Anywhere</span>
+            </div>
+        </div>
+
         <!-- New Dropdown Menu -->
         <div class="dropdown dropdown-end mr-3">
             <label tabindex="0" class="btn btn-ghost btn-circle">
@@ -238,82 +237,9 @@
 </div>
 
 <style>
-/* Enhanced Navigation Styles - Optimized for Overlap Prevention */
-.logo-container {
-    min-width: fit-content;
+/* Logo Text in Top Right Corner */
+.logo-text-container {
     flex-shrink: 0;
-}
-
-.logo-image {
-    flex-shrink: 0;
-    object-fit: contain;
-}
-
-.nav-menu-optimized {
-    min-width: 0;
-    flex-wrap: nowrap;
-    justify-content: center;
-}
-
-.nav-item {
-    position: relative;
-    transition: all 0.3s ease;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.5rem 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    white-space: nowrap;
-    min-width: fit-content;
-}
-
-.nav-item:hover {
-    color: #60a5fa !important;
-    background-color: rgba(96, 165, 250, 0.1);
-    transform: translateY(-1px);
-}
-
-.nav-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #60a5fa, #3b82f6);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-    border-radius: 1px;
-}
-
-.nav-item:hover::after {
-    width: 80%;
-}
-
-.nav-item.active {
-    color: #60a5fa !important;
-    background-color: rgba(96, 165, 250, 0.15);
-    font-weight: 700;
-}
-
-.nav-item.active::after {
-    width: 80%;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1280px) {
-    .nav-item {
-        font-size: 0.875rem;
-        padding: 0.5rem 0.625rem;
-    }
-}
-
-@media (max-width: 1024px) {
-    .navbar-center {
-        display: none !important;
-    }
 }
 
 /* Text gradient for logo */
@@ -324,35 +250,62 @@
     background-clip: text;
 }
 
-/* Ensure proper spacing and prevent overlap */
-.navbar {
-    min-height: 4rem;
-    padding: 0.5rem 1rem;
+/* Enhanced Navigation Styles */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.navbar-start {
-    min-width: fit-content;
-    flex: 0 0 auto;
+.nav-link:hover {
+    color: #60a5fa !important;
+    background-color: rgba(96, 165, 250, 0.1);
+    transform: translateY(-2px);
 }
 
-.navbar-center {
-    flex: 1 1 auto;
-    min-width: 0;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #60a5fa, #3b82f6);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
-.navbar-end {
-    min-width: fit-content;
-    flex: 0 0 auto;
+.nav-link:hover::after {
+    width: 80%;
 }
 
-/* Mobile optimizations */
+.nav-active {
+    color: #60a5fa !important;
+    background-color: rgba(96, 165, 250, 0.15);
+    font-weight: 700;
+}
+
+.nav-active::after {
+    width: 80%;
+}
+
+/* Responsive Design */
 @media (max-width: 640px) {
-    .logo-container .hidden {
-        display: none !important;
+    .logo-text-container {
+        display: none;
     }
-    
-    .navbar {
-        padding: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+    .navbar-center {
+        display: none !important;
     }
 }
 </style>
