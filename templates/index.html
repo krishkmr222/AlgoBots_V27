@@ -543,59 +543,62 @@
         }
     }
     
-    /* Enhanced Button Styles - Dark buttons with gradient borders */
+    /* Enhanced Button Styles - Transparent gradient buttons */
     .btn-solid-primary {
-        background-color: #1f2937;
+        background: transparent;
         color: #ffffff;
         border: 2px solid transparent;
-        background-image: linear-gradient(#1f2937, #1f2937), linear-gradient(to right, #FF4365, #e6a612, #f8030c);
+        background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), linear-gradient(to right, #FF4365, #e6a612, #f8030c);
         background-origin: border-box;
         background-clip: padding-box, border-box;
+        backdrop-filter: blur(10px);
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
     }
     
     .btn-solid-primary:hover {
-        background-color: #111827;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(to right, #FF4365, #e6a612, #f8030c);
         transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(31, 41, 55, 0.4);
+        box-shadow: 0 10px 25px rgba(255, 67, 101, 0.3);
     }
     
     .btn-solid-secondary {
-        background-color: #374151;
+        background: transparent;
         color: #ffffff;
         border: 2px solid transparent;
-        background-image: linear-gradient(#374151, #374151), linear-gradient(to right, #FF4365, #e6a612, #f8030c);
+        background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), linear-gradient(to right, #FF4365, #e6a612, #f8030c);
         background-origin: border-box;
         background-clip: padding-box, border-box;
+        backdrop-filter: blur(10px);
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
     }
     
     .btn-solid-secondary:hover {
-        background-color: #1f2937;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(to right, #FF4365, #e6a612, #f8030c);
         transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(55, 65, 81, 0.4);
+        box-shadow: 0 10px 25px rgba(230, 166, 18, 0.3);
     }
     
     .btn-solid-accent {
-        background-color: #4b5563;
+        background: transparent;
         color: #ffffff;
         border: 2px solid transparent;
-        background-image: linear-gradient(#4b5563, #4b5563), linear-gradient(to right, #FF4365, #e6a612, #f8030c);
+        background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), linear-gradient(to right, #FF4365, #e6a612, #f8030c);
         background-origin: border-box;
         background-clip: padding-box, border-box;
+        backdrop-filter: blur(10px);
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
     }
     
     .btn-solid-accent:hover {
-        background-color: #374151;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(to right, #FF4365, #e6a612, #f8030c);
         transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(75, 85, 99, 0.4);
+        box-shadow: 0 10px 25px rgba(248, 3, 12, 0.3);
     }
 </style>
 
