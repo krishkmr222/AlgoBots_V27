@@ -71,17 +71,17 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        /* Enhanced background image visibility */
+        /* Enhanced background image visibility with more transparency */
         background: linear-gradient(135deg, 
-            rgba(15, 15, 16, 0.7) 0%, 
-            rgba(26, 26, 26, 0.65) 50%, 
-            rgba(15, 15, 16, 0.7) 100%),
+            rgba(15, 15, 16, 0.5) 0%, 
+            rgba(26, 26, 26, 0.45) 50%, 
+            rgba(15, 15, 16, 0.5) 100%),
             radial-gradient(circle at 50% 50%, 
-            rgba(99, 102, 241, 0.1) 0%, 
+            rgba(99, 102, 241, 0.08) 0%, 
             transparent 50%);
         /* Improved blending for better image visibility */
         background-blend-mode: overlay, normal;
-        filter: brightness(1.1) contrast(1.05);
+        filter: brightness(1.15) contrast(1.08);
     }
 
     .hero-particles {
