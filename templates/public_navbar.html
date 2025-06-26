@@ -1,63 +1,125 @@
-<div class="navbar glass-navbar">
-    <!-- Logo -->
+<div class="navbar bg-base-100 glass-navbar">
+    <!-- Mobile Menu Button -->
     <div class="navbar-start">
         <label for="main-drawer" class="btn btn-ghost drawer-button lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
             </svg>
         </label>
-        <a href="/" class="btn btn-ghost normal-case text-xl gap-2 text-white hover:text-blue-400">
-            <div class="flex flex-col items-start">
-                <span class="font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent text-2xl">AlgoBots</span>
-                <span class="text-xs text-gray-300 -mt-1">Anytime Anywhere</span>
-            </div>
+        <a href="/" class="btn btn-ghost normal-case text-xl gap-3 hover:bg-transparent">
+            <img src="{{ url_for('static', filename='favicon/algobots-logo.svg') }}" alt="AlgoBots" class="h-10 w-10">
+            <span class="hidden sm:inline text-gradient-primary font-bold text-2xl">AlgoBots</span>
         </a>
     </div>
-    
-    <!-- Desktop Navigation (center) -->
+
+    <!-- Desktop Menu -->
     <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1 text-white">
-            <li><a href="/" class="nav-link font-bold text-base px-4 py-2 {{ 'nav-active' if request.path == '/' }}">Home</a></li>
-            <li><a href="/about" class="nav-link font-bold text-base px-4 py-2 {{ 'nav-active' if request.path == '/about' }}">About</a></li>
-            <li><a href="/vision" class="nav-link font-bold text-base px-4 py-2 {{ 'nav-active' if request.path == '/vision' }}">Vision</a></li>
-            <li><a href="/mission" class="nav-link font-bold text-base px-4 py-2 {{ 'nav-active' if request.path == '/mission' }}">Mission</a></li>
-            <li><a href="/team" class="nav-link font-bold text-base px-4 py-2 {{ 'nav-active' if request.path == '/team' }}">Team</a></li>
-            <li><a href="/services" class="nav-link font-bold text-base px-4 py-2 {{ 'nav-active' if request.path == '/services' }}">Services</a></li>
-            <li><a href="/roadmap" class="nav-link font-bold text-base px-4 py-2 {{ 'nav-active' if request.path == '/roadmap' }}">Roadmap</a></li>
-            <li><a href="/contact" class="nav-link font-bold text-base px-4 py-2 {{ 'nav-active' if request.path == '/contact' }}">Contact</a></li>
+        <ul class="menu menu-horizontal px-1 gap-2">
+            <li>
+                <a href="/" class="nav-link {{ 'nav-active' if request.path == '/' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="/about" class="nav-link {{ 'nav-active' if request.path == '/about' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="/services" class="nav-link {{ 'nav-active' if request.path == '/services' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                    Services
+                </a>
+            </li>
+            <li>
+                <a href="/contact" class="nav-link {{ 'nav-active' if request.path == '/contact' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Contact
+                </a>
+            </li>
         </ul>
     </div>
-    
-    <!-- Right side buttons -->
+
+    <!-- Right Side - New Dropdown Menu -->
     <div class="navbar-end">
-        <!-- Unified Theme Toggle -->
-        <div class="tooltip tooltip-bottom" data-tip="Toggle Light/Dark Theme">
-            <label class="swap swap-rotate btn btn-ghost btn-circle text-white hover:text-blue-400 theme-switcher">
-                <input type="checkbox" class="theme-controller" />
-                <!-- sun icon (light mode) -->
-                <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>
-                </svg>
-                <!-- moon icon (dark mode) -->
-                <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/>
+        <!-- New Dropdown Menu -->
+        <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </label>
+            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-100 rounded-box w-52 border border-base-300">
+                <li>
+                    <div class="flex items-center justify-between p-2">
+                        <span class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
+                            </svg>
+                            Theme Type
+                        </span>
+                        <div class="flex items-center gap-1">
+                            <div class="w-2 h-2 bg-gray-800 rounded-full"></div>
+                            <span class="text-xs text-gray-500">Dark</span>
+                        </div>
+                    </div>
+                </li>
+                <div class="divider my-1"></div>
+                <li>
+                    <a href="https://docs.algobots.in" target="_blank" class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        Documentation
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="/settings" class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        Settings
+                    </a>
+                </li>
+            </ul>
         </div>
+
+        <!-- Login Button -->
+        <a href="/login" class="btn btn-primary ml-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+            </svg>
+            Login
+        </a>
     </div>
 </div>
 
 <style>
-/* Enhanced Navigation Styles with consistent button sizing */
+/* Enhanced Navigation Styles */
 .nav-link {
     position: relative;
     transition: all 0.3s ease;
     border-radius: 0.5rem;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1rem;
-    padding: 0.5rem 1rem;
-    color: #ffffff;
-    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .nav-link:hover {
@@ -86,7 +148,7 @@
 .nav-active {
     color: #60a5fa !important;
     background-color: rgba(96, 165, 250, 0.15);
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .nav-active::after {
@@ -96,45 +158,15 @@
 /* Glass navbar effect */
 .glass-navbar {
     backdrop-filter: blur(20px);
-    background: var(--navbar-bg, rgba(0, 0, 0, 0.3));
+    background: rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: var(--theme-transition, all 0.3s ease);
 }
 
-/* Enhanced Theme switcher */
-.theme-switcher {
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.theme-switcher:hover {
-    background-color: rgba(96, 165, 250, 0.2);
-    transform: scale(1.05);
-}
-
-/* Enhanced button styles for consistency */
-.btn-solid-primary {
-    background-color: #10b981;
-    transition: all 0.3s ease;
-    border: none;
-    font-weight: 600;
-}
-
-.btn-solid-primary:hover {
-    background-color: #059669;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-}
-
-/* Mobile menu improvements */
-@media (max-width: 1024px) {
-    .navbar-center {
-        display: none;
-    }
-}
-
-/* Theme transition class for smooth switching */
-.theme-transitioning * {
-    transition: var(--theme-transition, all 0.3s ease) !important;
+/* Text gradient for logo */
+.text-gradient-primary {
+    background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 </style>

@@ -5,16 +5,21 @@ module.exports = {
     "./static/**/*.js",
   ],
   theme: {
-    extend: {}
+    extend: {
+      // Custom CSS variables for dark theme consistency
+      colors: {
+        'hero-overlay': 'rgba(15, 15, 16, 0.85)',
+      }
+    }
   },
   daisyui: {
-    themes: ["light", "dark", "garden"],
+    themes: ["dark"], // Only dark theme as requested
     darkTheme: "dark",
     base: true,
     styled: true,
     utils: true,
     prefix: "",
-    logs: true,
+    logs: false, // Disable logs for cleaner output
   },
   plugins: [require("daisyui")]
 }
