@@ -559,9 +559,9 @@ body {
   background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
 }
 
-/* Standardized Section Title Class - Blue to Emerald Green */
+/* Standardized Section Title Class - Brand Gradient */
 .section-title-standard {
-    background: linear-gradient(135deg, #3b82f6 0%, #059669 100%) !important;
+    background: linear-gradient(to right, #FF4365, #e6a612, #f8030c) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
