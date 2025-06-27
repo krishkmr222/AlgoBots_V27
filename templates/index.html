@@ -50,15 +50,23 @@
     </div>
 </section>
 
-<!-- Features Section with Enhanced Theme Support and Fixed Text Heights -->
-<section class="section-modern w-full bg-base-100">
-    <div class="px-6 py-20">
+<!-- Enhanced Features Section with More Visual Appeal -->
+<section class="section-modern w-full bg-base-100 relative overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="floating-orb absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-blue-500/20 to-purple-600/20 rounded-full blur-xl animate-float"></div>
+        <div class="floating-orb absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-emerald-500/20 to-teal-600/20 rounded-full blur-xl animate-float" style="animation-delay: 2s;"></div>
+        <div class="floating-orb absolute bottom-20 left-1/4 w-20 h-20 bg-gradient-to-r from-orange-500/20 to-red-600/20 rounded-full blur-xl animate-float" style="animation-delay: 4s;"></div>
+    </div>
+    
+    <div class="px-6 py-20 relative z-10">
         <div class="section-header-modern" data-aos="fade-up">
             <h2 class="text-base-content section-title-fixed section-title-standard">Why Choose AlgoBots?</h2>
-            <p class="text-base-content opacity-70">Experience the future of algorithmic trading with our comprehensive platform designed for traders of all levels.</p>
+            <p class="text-base-content opacity-70 max-w-3xl mx-auto text-lg">Experience the future of algorithmic trading with our comprehensive platform designed for traders of all levels.</p>
         </div>
 
-        <div class="grid-modern max-w-7xl mx-auto">
+        <!-- Premium Feature Cards Grid -->
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-w-7xl mx-auto mt-16">
             <!-- Multi-Broker Integration -->
             <div class="card-modern bg-base-200" data-aos="fade-up" data-aos-delay="100">
                 <div class="card-body">
