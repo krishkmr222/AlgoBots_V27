@@ -559,9 +559,17 @@ body {
   background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
 }
 
-/* Standardized Section Title Class - White Text */
+/* Standardized Section Title Class - Yellow-Red Gradient Text */
 .section-title-standard {
-    color: #ffffff !important;
+    background: linear-gradient(to right, #FF4365, #e6a612, #f8030c) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    background-size: 400% 400% !important;
+    animation: gradient-shift 6s ease-in-out infinite !important;
+    position: relative !important;
+    display: inline-block !important;
+    text-shadow: none !important;
 }
 
 /* Import Tailwind CSS component styles */
