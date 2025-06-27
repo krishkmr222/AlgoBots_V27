@@ -97,20 +97,10 @@
             </div>
 
             <!-- Main Content -->
-            <main class="flex-grow bg-base-100 mt-6 {% if request.endpoint == 'dashboard_bp.dashboard' %}px-4{% endif %}">
-                {% block content_wrapper %}
-                    {% if request.endpoint == 'dashboard_bp.dashboard' %}
-                        <!-- Dashboard gets full width treatment -->
-                        <div class="w-full max-w-none">
-                            {% block content %}{% endblock %}
-                        </div>
-                    {% else %}
-                        <!-- Other pages use container -->
-                        <div class="container mx-auto px-4">
-                            {% block content %}{% endblock %}
-                        </div>
-                    {% endif %}
-                {% endblock %}
+            <main class="flex-grow bg-base-100 mt-6">
+                <div class="container mx-auto px-4">
+                    {% block content %}{% endblock %}
+                </div>
             </main>
 
             <!-- Footer -->
