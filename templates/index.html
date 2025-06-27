@@ -745,6 +745,104 @@
 <!-- Initialize AOS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+    });
+
+    // Counter Animation
+    function animateCounter(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            
+            // Format the number based on target value
+            if (target >= 1000) {
+                element.textContent = (current / 1000).toFixed(1);
+            } else if (target < 10) {
+                element.textContent = current.toFixed(1);
+            } else {
+                element.textContent = Math.floor(current);
+            }
+        }, 16);
+    }
+
+    // Intersection Observer for counters
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    // Start counter animations when elements come into view
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // Demo button click handler
+        const demoButton = document.querySelector('.demo-button');
+        if (demoButton) {
+            demoButton.addEventListener('click', () => {
+                // Add pulse animation
+                demoButton.style.animation = 'pulse 0.6s ease-in-out';
+                setTimeout(() => {
+                    demoButton.style.animation = '';
+                    // You can add actual demo functionality here
+                    showToast('Interactive demo launching soon!', 'info');
+                }, 600);
+            });
+        }
+
+        // Add live order updates
+        setInterval(() => {
+            const orderFeed = document.querySelector('.order-feed .space-y-3');
+            if (orderFeed) {
+                // Create new order item
+                const orders = [
+                    { action: 'BUY', stock: 'INFY', amount: '+₹1,850', color: 'green' },
+                    { action: 'SELL', stock: 'WIPRO', amount: '-₹950', color: 'orange' },
+                    { action: 'BUY', stock: 'SBIN', amount: '+₹2,200', color: 'blue' },
+                    { action: 'SELL', stock: 'ITC', amount: '-₹1,400', color: 'red' }
+                ];
+                
+                const randomOrder = orders[Math.floor(Math.random() * orders.length)];
+                
+                const newOrderItem = document.createElement('div');
+                newOrderItem.className = 'order-item flex items-center justify-between p-3 bg-gray-700/50 rounded-lg animate-fade-in';
+                newOrderItem.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-${randomOrder.color}-400 rounded-full animate-pulse"></div>
+                        <span class="text-sm text-white font-mono">${randomOrder.action} ${randomOrder.stock}</span>
+                    </div>
+                    <div class="text-sm text-${randomOrder.color}-400 font-mono">${randomOrder.amount}</div>
+                `;
+                
+                // Add to top and remove last item to maintain 3 items
+                orderFeed.insertBefore(newOrderItem, orderFeed.firstChild);
+                if (orderFeed.children.length > 3) {
+                    orderFeed.removeChild(orderFeed.lastChild);
+                }
+            }
+        }, 5000); // Update every 5 seconds
+    });
+</script>
+
 <style>
     /* FIXED: Hero Section with Enhanced Background Image Visibility */
     .hero-section {
