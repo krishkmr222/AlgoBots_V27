@@ -24,7 +24,14 @@ scalper_process = None
 @dashboard_bp.route('/dashboard')
 @check_session_validity
 def dashboard():
-    login_username = session['user']
+    login_username = session.get('user')
+    
+    # Check if user exists and is valid
+    if not login_username or login_username in ['InitialSetup', 'initial', 'setup']:
+        logger.warning(f"Invalid or placeholder username found in session: {login_username}")
+        session.clear()
+        return redirect(url_for('auth.login'))
+    
     AUTH_TOKEN = get_auth_token(login_username)
     
     if AUTH_TOKEN is None:
