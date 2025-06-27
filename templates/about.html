@@ -249,6 +249,30 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
+<style>
+    /* FIXED: Section titles with proper height to prevent letter cropping */
+    .section-title-fixed {
+        color: #ffffff;
+        line-height: 1.4 !important; /* Increased line height */
+        padding: 0.75rem 0 !important; /* Added padding for descenders */
+        margin-bottom: 1.5rem !important;
+    }
+    
+    /* Additional styling for better visibility */
+    .section-title-standard.section-title-fixed {
+        line-height: 1.4 !important;
+        padding: 0.75rem 0 !important;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .section-title-fixed {
+            line-height: 1.4 !important;
+            padding: 0.5rem 0 !important;
+        }
+    }
+</style>
+
 <script>
     // Initialize AOS
     AOS.init({
