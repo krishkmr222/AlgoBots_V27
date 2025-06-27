@@ -194,8 +194,8 @@ Consistent Class Usage:
    - Status: Consistent with unified system
 
 8. `/app/static/css/main.css`
-   - ENHANCED: Added comprehensive theme transition support
-   - Status: Smooth animations and proper CSS variables
+   - ENHANCED: Added comprehensive theme transition support + gradient text styling
+   - Status: Smooth animations, proper CSS variables, and unified gradient text for titles
 
 ================================================================================
                            USER EXPERIENCE
