@@ -570,6 +570,9 @@ body {
     position: relative !important;
     display: inline-block !important;
     text-shadow: none !important;
+    line-height: 1.2 !important;
+    padding-bottom: 0.1em !important;
+    overflow: visible !important;
 }
 
 /* Premium Card Styles */
