@@ -29,7 +29,8 @@ def dashboard():
     
     if AUTH_TOKEN is None:
         logger.warning(f"No auth token found for user {login_username}")
-        return redirect(url_for('auth.logout'))
+        # Redirect to broker login instead of logout to maintain user session
+        return redirect(url_for('auth.broker_login'))
 
     broker = session.get('broker')
     if not broker:
